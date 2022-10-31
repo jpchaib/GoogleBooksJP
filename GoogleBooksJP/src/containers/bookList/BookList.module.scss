@@ -1,0 +1,58 @@
+@use "../../style/partials/style.scss";
+
+.BookList {
+    display: flex;
+    flex-direction: column;
+}
+
+.Error {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 40px;
+}
+
+.Grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px;
+    padding: 10px;
+}
+
+.BtnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.Btn {
+    background-color: white;
+    font-family: Source Sans Pro;
+    color: grey;
+    font-size: 20px;
+    border: none;
+    border-radius: 6px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.Page {
+    background-color: white;
+    font-family: Source Sans Pro;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 2px;
+    border-radius: 6px;
+}
+
+h1 {
+    color: white;
+    font-size: large;
+}

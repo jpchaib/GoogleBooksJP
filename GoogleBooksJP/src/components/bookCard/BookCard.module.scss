@@ -1,0 +1,59 @@
+@use "../../style/partials/style.scss";
+
+h4 {
+    font-family: Source Sans Pro;
+    font-weight: 100;
+}
+
+h3 {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: medium;
+}
+
+.Card {
+    display: flex;
+    border: 2px solid white;
+    border-radius: 15px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.Image {
+    width: 120px;
+    height: 180px;
+    border: 1px solid black;
+    margin: 10px;
+}
+
+.Info {
+    display: flex;
+    flex-direction: column;
+}
+
+.Rating {
+    display: flex;
+    flex-direction: row;
+}
+
+.Link {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    font-family: Roboto;
+    padding: 4px;
+    width: max-content;
+    font-size: small;
+    border-radius: 10px;
+    margin-top: 40px;
+    &:hover {
+        border: 1px solid blue;
+    }
+}
+
+.Collection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+}
