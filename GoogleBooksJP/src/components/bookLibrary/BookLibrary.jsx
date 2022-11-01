@@ -1,10 +1,11 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { addBook } from "../../services/library/library";
-import style from "./BookCard.module.scss";
+import { deleteBookById } from "../../services/library/library";
+import style from "./BookLibrary.module.scss";
 
-const BookCard = ({ bookData }) => {
+const BookLibrary = ({ bookData }) => {
     const navigate = useNavigate();
     const rate = [];
     const [info, setInfo] = useState({
@@ -18,13 +19,6 @@ const BookCard = ({ bookData }) => {
     });
 
     const id = bookData.id;
-    const item = bookData.volumeInfo;
-
-    Object.keys(info).forEach((key) => {
-        if (item[key]) {
-            info[key] = item[key];
-        }
-    });
 
     Object.keys(info).forEach((key) => {
         if (bookData[key]) {
@@ -39,8 +33,8 @@ const BookCard = ({ bookData }) => {
     const handleClick = (event) => {
         console.log(info);
         console.log("clicked");
-        addBook(info).then(() => navigate("/library/"));
-        console.log("Book added");
+        deleteBookById(id).then(() => navigate("/"));
+        console.log("Book deleted");
     };
 
     return (
@@ -57,7 +51,7 @@ const BookCard = ({ bookData }) => {
                     </div>
                 </div>
                 <button className={style.Link} onClick={handleClick}>
-                    Add to Library
+                    Delete from Library
                 </button>
                 <NavLink className={style.Link} to={`/book/${id}`}>
                     See More
@@ -67,4 +61,4 @@ const BookCard = ({ bookData }) => {
     );
 };
 
-export default BookCard;
+export default BookLibrary;

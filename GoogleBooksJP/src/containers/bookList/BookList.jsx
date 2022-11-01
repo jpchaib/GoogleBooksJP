@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import BookCard from "../../components/bookCard/BookCard";
 import getBooksJSON from "../../services/books/books";
 import style from "./BookList.module.scss";
@@ -8,6 +9,7 @@ import BookContext from "../../components/bookContext/BookContext";
 import ErrorContext from "../../components/errorContext/ErrorContext";
 
 const BookList = ({ searchParams, setSearchParams }) => {
+    const { search } = useParams();
     const [books, setBooks] = useContext(BookContext);
     const [error, setError] = useContext(ErrorContext);
     const [json, setJson] = useState({});
@@ -22,8 +24,6 @@ const BookList = ({ searchParams, setSearchParams }) => {
                 setError(err.message);
             });
     }, [searchParams]);
-
-    console.log(json);
 
     const movePageUp = (event) => {
         if (searchParams.startIndex < json.totalItems / 10) {
